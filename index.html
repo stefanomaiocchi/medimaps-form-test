@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Medimaps Form Test</title>
+  <style>
+    :root { --bg:#f6f8fb; --card:#fff; --ink:#14213d; --muted:#5b6b82; --accent:#0b6bcb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    header { background:linear-gradient(135deg,#0b3d91,#0b6bcb); color:#fff; padding:56px 16px 96px; text-align:center; }
+    header h1 { margin:0 0 12px; font-size:clamp(1.8rem,4vw,2.6rem); }
+    header p { margin:0 auto; max-width:620px; opacity:.9; line-height:1.5; }
+    main { max-width:1040px; margin:-64px auto 48px; padding:0 16px; display:grid; gap:24px; grid-template-columns:1fr; }
+    @media (min-width: 860px) { main { grid-template-columns: 1fr 1.1fr; } }
+    .card { background:var(--card); border-radius:14px; padding:28px; box-shadow:0 8px 28px rgba(20,33,61,.08); }
+    .card h2 { margin-top:0; font-size:1.25rem; }
+    ul { padding-left:18px; color:var(--muted); line-height:1.7; }
+    footer { text-align:center; color:var(--muted); font-size:.85rem; padding:24px 16px 40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Scopri Medimaps</h1>
+    <p>Landing page di test esterna per verificare l'embed del Marketing Form Salesforce su un dominio non Salesforce.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Perché contattarci</h2>
+      <ul>
+        <li>Demo personalizzata della piattaforma</li>
+        <li>Supporto dedicato del nostro team</li>
+        <li>Risposta entro 24 ore lavorative</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Richiedi informazioni</h2>
+      <!-- Salesforce external form: scripts directly above the embedded form, as per the embed guide -->
+      <script async="async" src="https://www.mkt.medimaps.ai/lp/assets/scripts/external-forms-host.min.js"></script>
+      <script async="async" src="https://www.mkt.medimaps.ai/lp/assets/lightning_out_embed/prod/en-US/MCBRVZCDFV3RCFPNK7YFRNOGWHDQ.js" onload="window.sfdc_forms?sfdc_forms.init():window.sfdc_forms={loReady:!0}"></script>
+      <fragment-z4ve4xt22q27mpwrs878btr8pw9099lbzjfbwmvdxzl title="Marketing Form" id="container" data-external-form="true" data-web-tracking="true" data-recaptcha-site-key=""></fragment-z4ve4xt22q27mpwrs878btr8pw9099lbzjfbwmvdxzl>
+    </section>
+  </main>
+
+  <footer>Pagina di test — non indicizzata</footer>
+</body>
+</html>
