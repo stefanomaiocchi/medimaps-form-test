@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Medimaps Form Handler Test</title>
+  <title>Medimaps Consent Handler</title>
   <style>
     :root { --bg:#f6f8fb; --card:#fff; --ink:#14213d; --muted:#5b6b82; --accent:#0b6bcb; --line:#cfd8e3; }
     * { box-sizing: border-box; }
@@ -31,19 +31,19 @@
 </head>
 <body>
   <header>
-    <h1>Richiedi informazioni</h1>
-    <p>Pagina di test esterna per il Form Handler Salesforce. Due varianti dello stesso form: invio via JavaScript (API) e invio classico (POST).</p>
+    <h1>Stay in touch with Medimaps</h1>
+    <p>Pagina di test esterna per il Form Handler ufficiale &laquo;Consent collection handler&raquo;. Due varianti dello stesso form: invio via JavaScript (API) e invio classico (POST).</p>
   </header>
 
   <main>
     <section class="card">
       <h2>A · Invio JavaScript</h2>
       <p class="hint">Form con <code>id</code> del handler e <code>data-uma-forms="true"</code>: lo script Salesforce intercetta il submit e chiama l'API (soggetta a CORS).</p>
-      <form id="MCSFARODEYTBGMJNPHAXYRKDE6JM" data-uma-forms="true">
-        <div class="field"><label for="a-firstname">First Name</label><input id="a-firstname" type="text" name="firstname" required></div>
-        <div class="field"><label for="a-lastname">Last Name</label><input id="a-lastname" type="text" name="lastname" required></div>
+      <form id="MC4L3DC3RLURG5VOFUZKGEYRV2NU" data-uma-forms="true">
+        <div class="field"><label for="a-firstname">First Name</label><input id="a-firstname" type="text" name="first_name" required></div>
+        <div class="field"><label for="a-lastname">Last Name</label><input id="a-lastname" type="text" name="last_name" required></div>
         <div class="field"><label for="a-email">Email</label><input id="a-email" type="email" name="email" required></div>
-        <label class="check"><input type="checkbox" name="optin" value="true"> I would like to receive communications from Medimaps Group.</label>
+        <label class="check"><input type="checkbox" name="opt_in" value="true"> I would like to receive communications from Medimaps Group.</label>
         <button type="submit">Submit</button>
       </form>
     </section>
@@ -51,11 +51,11 @@
     <section class="card">
       <h2>B · Invio classico (POST)</h2>
       <p class="hint">Form HTML standard con <code>method="POST"</code> verso l'endpoint del handler: nessun JavaScript, redirect alla pagina di successo/errore configurata.</p>
-      <form method="POST" action="https://www.mkt.medimaps.ai/lp/cms/form/submit/v1/MCSFARODEYTBGMJNPHAXYRKDE6JM">
-        <div class="field"><label for="b-firstname">First Name</label><input id="b-firstname" type="text" name="firstname" required></div>
-        <div class="field"><label for="b-lastname">Last Name</label><input id="b-lastname" type="text" name="lastname" required></div>
+      <form method="POST" action="https://www.mkt.medimaps.ai/lp/cms/form/submit/v1/MC4L3DC3RLURG5VOFUZKGEYRV2NU">
+        <div class="field"><label for="b-firstname">First Name</label><input id="b-firstname" type="text" name="first_name" required></div>
+        <div class="field"><label for="b-lastname">Last Name</label><input id="b-lastname" type="text" name="last_name" required></div>
         <div class="field"><label for="b-email">Email</label><input id="b-email" type="email" name="email" required></div>
-        <label class="check"><input type="checkbox" name="optin" value="true"> I would like to receive communications from Medimaps Group.</label>
+        <label class="check"><input type="checkbox" name="opt_in" value="true"> I would like to receive communications from Medimaps Group.</label>
         <button type="submit">Submit</button>
       </form>
     </section>
