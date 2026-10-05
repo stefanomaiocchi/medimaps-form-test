@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Medimaps Form Handler Test</title>
+  <style>
+    :root { --bg:#f6f8fb; --card:#fff; --ink:#14213d; --muted:#5b6b82; --accent:#0b6bcb; --line:#cfd8e3; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    header { background:linear-gradient(135deg,#0b3d91,#0b6bcb); color:#fff; padding:48px 16px 88px; text-align:center; }
+    header h1 { margin:0 0 10px; font-size:clamp(1.6rem,4vw,2.4rem); }
+    header p { margin:0 auto; max-width:640px; opacity:.9; line-height:1.5; }
+    main { max-width:1040px; margin:-56px auto 48px; padding:0 16px; display:grid; gap:24px; grid-template-columns:1fr; }
+    @media (min-width: 860px) { main { grid-template-columns: 1fr 1fr; } }
+    .card { background:var(--card); border-radius:14px; padding:28px; box-shadow:0 8px 28px rgba(20,33,61,.08); }
+    .card h2 { margin:0 0 6px; font-size:1.2rem; }
+    .card .hint { margin:0 0 20px; color:var(--muted); font-size:.9rem; line-height:1.5; }
+    label { display:block; font-size:.85rem; margin:0 0 4px; }
+    .field { margin-bottom:14px; }
+    input[type=text], input[type=email] { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; font:inherit; }
+    .check { display:flex; gap:8px; align-items:flex-start; font-size:.9rem; margin:6px 0 18px; }
+    .check input { margin-top:3px; }
+    button { background:var(--accent); color:#fff; border:0; border-radius:999px; padding:11px 26px; font:inherit; cursor:pointer; }
+    code { background:#eef2f7; padding:1px 5px; border-radius:4px; font-size:.82em; }
+    footer { text-align:center; color:var(--muted); font-size:.85rem; padding:8px 16px 40px; }
+  </style>
+  <!-- Salesforce Form Handler tracking script -->
+  <script async src="https://www.mkt.medimaps.ai/lp/assets/scripts/external-form-handler-host.min.js" onload="SFDCFormHandler.init('https://www.mkt.medimaps.ai/lp')"></script>
+</head>
+<body>
+  <header>
+    <h1>Richiedi informazioni</h1>
+    <p>Pagina di test esterna per il Form Handler Salesforce. Due varianti dello stesso form: invio via JavaScript (API) e invio classico (POST).</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>A · Invio JavaScript</h2>
+      <p class="hint">Form con <code>id</code> del handler e <code>data-uma-forms="true"</code>: lo script Salesforce intercetta il submit e chiama l'API (soggetta a CORS).</p>
+      <form id="MCSFARODEYTBGMJNPHAXYRKDE6JM" data-uma-forms="true">
+        <div class="field"><label for="a-firstname">First Name</label><input id="a-firstname" type="text" name="firstname" required></div>
+        <div class="field"><label for="a-lastname">Last Name</label><input id="a-lastname" type="text" name="lastname" required></div>
+        <div class="field"><label for="a-email">Email</label><input id="a-email" type="email" name="email" required></div>
+        <label class="check"><input type="checkbox" name="optin" value="true"> I would like to receive communications from Medimaps Group.</label>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>B · Invio classico (POST)</h2>
+      <p class="hint">Form HTML standard con <code>method="POST"</code> verso l'endpoint del handler: nessun JavaScript, redirect alla pagina di successo/errore configurata.</p>
+      <form method="POST" action="https://www.mkt.medimaps.ai/lp/cms/form/submit/v1/MCSFARODEYTBGMJNPHAXYRKDE6JM">
+        <div class="field"><label for="b-firstname">First Name</label><input id="b-firstname" type="text" name="firstname" required></div>
+        <div class="field"><label for="b-lastname">Last Name</label><input id="b-lastname" type="text" name="lastname" required></div>
+        <div class="field"><label for="b-email">Email</label><input id="b-email" type="email" name="email" required></div>
+        <label class="check"><input type="checkbox" name="optin" value="true"> I would like to receive communications from Medimaps Group.</label>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>Pagina di test — non indicizzata</footer>
+</body>
+</html>
